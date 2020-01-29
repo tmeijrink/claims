@@ -1,0 +1,23 @@
+{
+  "lang" : "zxx",
+  "name" : "flowClaimsAS400-mapDate",
+  "description" : "",
+  "version" : 3,
+  "targetEntityType" : "http://example.org/Claim-0.0.1/Claim",
+  "sourceContext" : "/",
+  "sourceURI" : "/mydhfproject/Data/claims/ClaimDate/d132d9fe-63ee-40ab-98a6-9ff272dcda2c.json",
+  "properties" : {
+    "lossDate" : {
+      "sourcedFrom" : "concat(substring(DACLOSI,6,2),\"-\",substring(DACLOSI,5,1),\"-\",substring(DACLOSI,0,5))"
+    },
+    "noticeDate" : {
+      "sourcedFrom" : "concat(substring(DADCLSI,6,2),\"-\",substring(DADCLSI,5,1),\"-\",substring(DADCLSI,0,5))"
+    },
+    "claimId" : {
+      "sourcedFrom" : "NOIDSIN"
+    },
+    "createDate" : {
+      "sourcedFrom" : "concat(substring(DAOUVSI,6,2),\"-\",substring(DAOUVSI,5,1),\"-\",substring(DAOUVSI,0,5))"
+    }
+  }
+}

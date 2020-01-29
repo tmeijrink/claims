@@ -20,12 +20,9 @@
           "createdBy" : "currentUser"
         },
         "sourceQuery" : "cts.collectionQuery([])",
-        "targetEntity" : "",
         "collections" : [ "ingestLocation" ],
-        "sourceDatabase" : "",
         "permissions" : "rest-reader,read,rest-writer,update",
         "outputFormat" : "json",
-        "sourceCollection" : "",
         "targetDatabase" : "data-hub-STAGING"
       },
       "customHook" : {
@@ -40,7 +37,7 @@
       "stepDefinitionName" : "default-ingestion",
       "stepDefinitionType" : "INGESTION",
       "fileLocations" : {
-        "inputFilePath" : "/mydhfproject/Data/ethias/ClaimLocation",
+        "inputFilePath" : "/mydhfproject/Data/claims/ClaimLocation",
         "inputFileType" : "csv",
         "outputURIReplacement" : "",
         "separator" : ";"
@@ -76,7 +73,7 @@
       "stepDefinitionName" : "default-ingestion",
       "stepDefinitionType" : "INGESTION",
       "fileLocations" : {
-        "inputFilePath" : "/mydhfproject/Data/ethias/ClaimDate",
+        "inputFilePath" : "/mydhfproject/Data/claims/ClaimDate",
         "inputFileType" : "csv",
         "outputURIReplacement" : "",
         "separator" : ";"
@@ -112,7 +109,7 @@
       "stepDefinitionName" : "default-ingestion",
       "stepDefinitionType" : "INGESTION",
       "fileLocations" : {
-        "inputFilePath" : "/mydhfproject/Data/ethias/ClaimVehicle",
+        "inputFilePath" : "/mydhfproject/Data/claims/ClaimVehicle",
         "inputFileType" : "csv",
         "outputURIReplacement" : "",
         "separator" : ";"
@@ -186,7 +183,7 @@
         "sourceQuery" : "cts.collectionQuery([\"ingestVehicle\"])",
         "mapping" : {
           "name" : "flowClaimsAS400-mapVehicle",
-          "version" : 1
+          "version" : 3
         },
         "targetEntity" : "Claim",
         "sourceDatabase" : "data-hub-STAGING",
@@ -202,7 +199,7 @@
         "user" : "",
         "runBefore" : false
       },
-      "retryLimit" : 0,
+      "retryLimit" : null,
       "batchSize" : 100,
       "threadCount" : 4,
       "stepDefinitionName" : "entity-services-mapping",
@@ -318,7 +315,7 @@
         "user" : "",
         "runBefore" : false
       },
-      "retryLimit" : null,
+      "retryLimit" : 0,
       "batchSize" : 100,
       "threadCount" : 4,
       "stepDefinitionName" : "default-mastering",

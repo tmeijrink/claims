@@ -1,0 +1,20 @@
+{
+  "lang" : "zxx",
+  "name" : "flowClaimsAS400-mapVehicle",
+  "description" : "",
+  "version" : 3,
+  "targetEntityType" : "http://example.org/Claim-0.0.1/Claim",
+  "sourceContext" : "/",
+  "sourceURI" : "/mydhfproject/Data/claims/ClaimVehicle/cbf52c96-53ec-456f-99ef-7c6130d258c9.json",
+  "properties" : {
+    "vehicleBrand" : {
+      "sourcedFrom" : "LTMRQVH"
+    },
+    "claimId" : {
+      "sourcedFrom" : "NOIDSIN"
+    },
+    "plateNumber" : {
+      "sourcedFrom" : "NOPLQVH"
+    }
+  }
+}
