@@ -1,0 +1,328 @@
+{
+  "name" : "flowClaimsAS400",
+  "description" : "Flow for handling the claim data from the AS400s",
+  "batchSize" : 100,
+  "threadCount" : 4,
+  "stopOnError" : false,
+  "options" : { },
+  "version" : 0,
+  "steps" : {
+    "1" : {
+      "name" : "ingestLocation",
+      "description" : "Ingest Claim locations",
+      "options" : {
+        "additionalCollections" : [ ],
+        "headers" : {
+          "sources" : [ {
+            "name" : "flowClaimsAS400"
+          } ],
+          "createdOn" : "currentDateTime",
+          "createdBy" : "currentUser"
+        },
+        "sourceQuery" : "cts.collectionQuery([])",
+        "targetEntity" : "",
+        "collections" : [ "ingestLocation" ],
+        "sourceDatabase" : "",
+        "permissions" : "rest-reader,read,rest-writer,update",
+        "outputFormat" : "json",
+        "sourceCollection" : "",
+        "targetDatabase" : "data-hub-STAGING"
+      },
+      "customHook" : {
+        "module" : "",
+        "parameters" : { },
+        "user" : "",
+        "runBefore" : false
+      },
+      "retryLimit" : 0,
+      "batchSize" : 100,
+      "threadCount" : 4,
+      "stepDefinitionName" : "default-ingestion",
+      "stepDefinitionType" : "INGESTION",
+      "fileLocations" : {
+        "inputFilePath" : "/mydhfproject/Data/ethias/ClaimLocation",
+        "inputFileType" : "csv",
+        "outputURIReplacement" : "",
+        "separator" : ";"
+      }
+    },
+    "2" : {
+      "name" : "ingestDate",
+      "description" : "Date information about the claim",
+      "options" : {
+        "additionalCollections" : [ ],
+        "headers" : {
+          "sources" : [ {
+            "name" : "flowClaimsAS400"
+          } ],
+          "createdOn" : "currentDateTime",
+          "createdBy" : "currentUser"
+        },
+        "sourceQuery" : "cts.collectionQuery([])",
+        "collections" : [ "ingestDate" ],
+        "permissions" : "rest-reader,read,rest-writer,update",
+        "outputFormat" : "json",
+        "targetDatabase" : "data-hub-STAGING"
+      },
+      "customHook" : {
+        "module" : "",
+        "parameters" : { },
+        "user" : "",
+        "runBefore" : false
+      },
+      "retryLimit" : 0,
+      "batchSize" : 100,
+      "threadCount" : 4,
+      "stepDefinitionName" : "default-ingestion",
+      "stepDefinitionType" : "INGESTION",
+      "fileLocations" : {
+        "inputFilePath" : "/mydhfproject/Data/ethias/ClaimDate",
+        "inputFileType" : "csv",
+        "outputURIReplacement" : "",
+        "separator" : ";"
+      }
+    },
+    "3" : {
+      "name" : "ingestVehicle",
+      "description" : "Ingest vehicles for claims",
+      "options" : {
+        "additionalCollections" : [ ],
+        "headers" : {
+          "sources" : [ {
+            "name" : "flowClaimsAS400"
+          } ],
+          "createdOn" : "currentDateTime",
+          "createdBy" : "currentUser"
+        },
+        "sourceQuery" : "cts.collectionQuery([])",
+        "collections" : [ "ingestVehicle" ],
+        "permissions" : "rest-reader,read,rest-writer,update",
+        "outputFormat" : "json",
+        "targetDatabase" : "data-hub-STAGING"
+      },
+      "customHook" : {
+        "module" : "",
+        "parameters" : { },
+        "user" : "",
+        "runBefore" : false
+      },
+      "retryLimit" : 0,
+      "batchSize" : 100,
+      "threadCount" : 4,
+      "stepDefinitionName" : "default-ingestion",
+      "stepDefinitionType" : "INGESTION",
+      "fileLocations" : {
+        "inputFilePath" : "/mydhfproject/Data/ethias/ClaimVehicle",
+        "inputFileType" : "csv",
+        "outputURIReplacement" : "",
+        "separator" : ";"
+      }
+    },
+    "4" : {
+      "name" : "mapLocation",
+      "description" : "Map locations to claim entity",
+      "options" : {
+        "additionalCollections" : [ ],
+        "sourceQuery" : "cts.collectionQuery([\"ingestLocation\"])",
+        "mapping" : {
+          "name" : "flowClaimsAS400-mapLocation",
+          "version" : 3
+        },
+        "targetEntity" : "Claim",
+        "sourceDatabase" : "data-hub-STAGING",
+        "collections" : [ "mapLocation", "Claim" ],
+        "validateEntity" : false,
+        "sourceCollection" : "ingestLocation",
+        "outputFormat" : "json",
+        "targetDatabase" : "data-hub-STAGING"
+      },
+      "customHook" : {
+        "module" : "",
+        "parameters" : { },
+        "user" : "",
+        "runBefore" : false
+      },
+      "retryLimit" : 0,
+      "batchSize" : 100,
+      "threadCount" : 4,
+      "stepDefinitionName" : "entity-services-mapping",
+      "stepDefinitionType" : "MAPPING"
+    },
+    "5" : {
+      "name" : "mapDate",
+      "description" : "Map dates to claim entity",
+      "options" : {
+        "additionalCollections" : [ ],
+        "sourceQuery" : "cts.collectionQuery([\"ingestDate\"])",
+        "mapping" : {
+          "name" : "flowClaimsAS400-mapDate",
+          "version" : 2
+        },
+        "targetEntity" : "Claim",
+        "sourceDatabase" : "data-hub-STAGING",
+        "collections" : [ "mapDate", "Claim" ],
+        "validateEntity" : false,
+        "sourceCollection" : "ingestDate",
+        "outputFormat" : "json",
+        "targetDatabase" : "data-hub-STAGING"
+      },
+      "customHook" : {
+        "module" : "",
+        "parameters" : { },
+        "user" : "",
+        "runBefore" : false
+      },
+      "retryLimit" : 0,
+      "batchSize" : 100,
+      "threadCount" : 4,
+      "stepDefinitionName" : "entity-services-mapping",
+      "stepDefinitionType" : "MAPPING"
+    },
+    "6" : {
+      "name" : "mapVehicle",
+      "description" : "Map vehicles to claim entity",
+      "options" : {
+        "additionalCollections" : [ ],
+        "sourceQuery" : "cts.collectionQuery([\"ingestVehicle\"])",
+        "mapping" : {
+          "name" : "flowClaimsAS400-mapVehicle",
+          "version" : 1
+        },
+        "targetEntity" : "Claim",
+        "sourceDatabase" : "data-hub-STAGING",
+        "collections" : [ "mapVehicle", "Claim" ],
+        "validateEntity" : false,
+        "sourceCollection" : "ingestVehicle",
+        "outputFormat" : "json",
+        "targetDatabase" : "data-hub-STAGING"
+      },
+      "customHook" : {
+        "module" : "",
+        "parameters" : { },
+        "user" : "",
+        "runBefore" : false
+      },
+      "retryLimit" : 0,
+      "batchSize" : 100,
+      "threadCount" : 4,
+      "stepDefinitionName" : "entity-services-mapping",
+      "stepDefinitionType" : "MAPPING"
+    },
+    "7" : {
+      "name" : "masterClaimData",
+      "description" : "Master and merge the claim data into claim360",
+      "options" : {
+        "stepUpdate" : true,
+        "additionalCollections" : [ ],
+        "sourceQuery" : "cts.collectionQuery([\"Claim\"])",
+        "acceptsBatch" : true,
+        "targetEntity" : "Claim360",
+        "sourceDatabase" : "data-hub-STAGING",
+        "collections" : [ "masterClaimData", "Claim360" ],
+        "mergeOptions" : {
+          "matchOptions" : "",
+          "propertyDefs" : {
+            "properties" : [ {
+              "localname" : "claimId",
+              "name" : "claimId"
+            } ],
+            "namespaces" : { }
+          },
+          "algorithms" : {
+            "stdAlgorithm" : {
+              "timestamp" : { }
+            },
+            "custom" : [ ],
+            "collections" : { }
+          },
+          "mergeStrategies" : [ ],
+          "merging" : [ {
+            "propertyName" : "claimId",
+            "maxValues" : "1",
+            "sourceWeights" : [ {
+              "source" : {
+                "name" : "ingestLocation",
+                "weight" : "1"
+              }
+            } ]
+          }, {
+            "algorithmRef" : "standard",
+            "maxValues" : "1",
+            "length" : {
+              "weight" : "10"
+            },
+            "sourceWeights" : [ ],
+            "default" : true
+          } ]
+        },
+        "matchOptions" : {
+          "propertyDefs" : {
+            "property" : [ {
+              "localname" : "claimId",
+              "name" : "claimId"
+            } ]
+          },
+          "algorithms" : {
+            "algorithm" : [ {
+              "name" : "double-metaphone",
+              "function" : "double-metaphone",
+              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
+              "at" : "/com.marklogic.smart-mastering/algorithms/double-metaphone.xqy"
+            }, {
+              "name" : "thesaurus",
+              "function" : "thesaurus",
+              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
+              "at" : "/com.marklogic.smart-mastering/algorithms/thesaurus.xqy"
+            }, {
+              "name" : "zip-match",
+              "function" : "zip-match",
+              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
+              "at" : "/com.marklogic.smart-mastering/algorithms/zip.xqy"
+            }, {
+              "name" : "standard-reduction",
+              "function" : "standard-reduction"
+            } ]
+          },
+          "collections" : {
+            "content" : [ ]
+          },
+          "scoring" : {
+            "add" : [ {
+              "propertyName" : "claimId",
+              "weight" : "20"
+            } ],
+            "expand" : [ ],
+            "reduce" : [ ]
+          },
+          "actions" : {
+            "action" : [ ]
+          },
+          "thresholds" : {
+            "threshold" : [ {
+              "above" : "10",
+              "label" : "MergeOnExactClaimId",
+              "action" : "merge"
+            } ]
+          },
+          "tuning" : {
+            "maxScan" : 200
+          }
+        },
+        "sourceCollection" : "Claim",
+        "outputFormat" : "json",
+        "targetDatabase" : "data-hub-FINAL"
+      },
+      "customHook" : {
+        "module" : "",
+        "parameters" : { },
+        "user" : "",
+        "runBefore" : false
+      },
+      "retryLimit" : null,
+      "batchSize" : 100,
+      "threadCount" : 4,
+      "stepDefinitionName" : "default-mastering",
+      "stepDefinitionType" : "MASTERING"
+    }
+  }
+}

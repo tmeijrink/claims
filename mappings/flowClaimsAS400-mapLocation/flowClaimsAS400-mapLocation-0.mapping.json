@@ -1,0 +1,10 @@
+{
+  "lang" : "zxx",
+  "name" : "flowClaimsAS400-mapLocation",
+  "description" : "",
+  "version" : 0,
+  "targetEntityType" : "http://example.org/Claim-0.0.1/Claim",
+  "sourceContext" : "/",
+  "sourceURI" : "",
+  "properties" : { }
+}

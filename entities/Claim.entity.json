@@ -1,0 +1,74 @@
+{
+  "info" : {
+    "title" : "Claim",
+    "version" : "0.0.1",
+    "baseUri" : "http://example.org/",
+    "description" : "Claim with all related information"
+  },
+  "definitions" : {
+    "Claim" : {
+      "required" : [ ],
+      "pii" : [ ],
+      "elementRangeIndex" : [ ],
+      "rangeIndex" : [ ],
+      "wordLexicon" : [ ],
+      "properties" : {
+        "claimId" : {
+          "datatype" : "string",
+          "description" : "NOIDSIN ID",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "claimStatus" : {
+          "datatype" : "string",
+          "description" : "Status of the claim",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lossDate" : {
+          "datatype" : "string",
+          "description" : "Date of loss",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "noticeDate" : {
+          "datatype" : "string",
+          "description" : "Date of notification",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "createDate" : {
+          "datatype" : "string",
+          "description" : "Date claim was created",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lossCity" : {
+          "datatype" : "string",
+          "description" : "City where object was lossed",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lossCountry" : {
+          "datatype" : "string",
+          "description" : "Country where object was lost",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lossStreet" : {
+          "datatype" : "string",
+          "description" : "Street where object was lost",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lossZipcode" : {
+          "datatype" : "string",
+          "description" : "Zipcode where object was lost",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "plateNumber" : {
+          "datatype" : "string",
+          "description" : "Plate number of object",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "vehicleBrand" : {
+          "datatype" : "string",
+          "description" : "Brand of vehicle",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        }
+      }
+    }
+  }
+}

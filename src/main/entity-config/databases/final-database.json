@@ -1,0 +1,44 @@
+{
+  "lang" : "zxx",
+  "path-namespace" : [ {
+    "prefix" : "es",
+    "namespace-uri" : "http://marklogic.com/entity-services"
+  } ],
+  "range-element-index" : [ {
+    "invalid-values" : "reject",
+    "localname" : "lossDate",
+    "namespace-uri" : null,
+    "range-value-positions" : false,
+    "scalar-type" : "string",
+    "collation" : "http://marklogic.com/collation/codepoint"
+  }, {
+    "invalid-values" : "reject",
+    "localname" : "lossCity",
+    "namespace-uri" : null,
+    "range-value-positions" : false,
+    "scalar-type" : "string",
+    "collation" : "http://marklogic.com/collation/codepoint"
+  }, {
+    "invalid-values" : "reject",
+    "localname" : "claimStatus",
+    "namespace-uri" : null,
+    "range-value-positions" : false,
+    "scalar-type" : "string",
+    "collation" : "http://marklogic.com/collation/codepoint"
+  }, {
+    "invalid-values" : "reject",
+    "localname" : "lossCountry",
+    "namespace-uri" : null,
+    "range-value-positions" : false,
+    "scalar-type" : "string",
+    "collation" : "http://marklogic.com/collation/codepoint"
+  }, {
+    "invalid-values" : "reject",
+    "localname" : "vehicleBrand",
+    "namespace-uri" : null,
+    "range-value-positions" : false,
+    "scalar-type" : "string",
+    "collation" : "http://marklogic.com/collation/codepoint"
+  } ],
+  "database-name" : "%%mlFinalDbName%%"
+}

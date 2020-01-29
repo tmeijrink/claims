@@ -1,0 +1,26 @@
+{
+  "lang" : "zxx",
+  "name" : "flowClaimsAS400-mapLocation",
+  "description" : "",
+  "version" : 3,
+  "targetEntityType" : "http://example.org/Claim-0.0.1/Claim",
+  "sourceContext" : "/",
+  "sourceURI" : "/mydhfproject/Data/ethias/ClaimLocation/789acfa0-90ac-460b-9f13-3ce95506da4e.json",
+  "properties" : {
+    "lossStreet" : {
+      "sourcedFrom" : "LTRUESI"
+    },
+    "lossZipcode" : {
+      "sourcedFrom" : "CDCPOSI"
+    },
+    "lossCity" : {
+      "sourcedFrom" : "LTLOCSI"
+    },
+    "claimId" : {
+      "sourcedFrom" : "NOIDSIN"
+    },
+    "lossCountry" : {
+      "sourcedFrom" : "if (CDPAYSI=\"B\") then \"BE\" else \"NL\""
+    }
+  }
+}

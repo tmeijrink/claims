@@ -1,0 +1,74 @@
+{
+  "info" : {
+    "title" : "Claim360",
+    "version" : "0.0.1",
+    "baseUri" : "http://example.org/",
+    "description" : "360 degree view of the claims"
+  },
+  "definitions" : {
+    "Claim360" : {
+      "required" : [ ],
+      "pii" : [ ],
+      "elementRangeIndex" : [ "claimStatus", "lossDate", "lossCity", "lossCountry", "vehicleBrand" ],
+      "rangeIndex" : [ ],
+      "wordLexicon" : [ ],
+      "properties" : {
+        "claimId" : {
+          "datatype" : "string",
+          "description" : "Claim ID",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "claimStatus" : {
+          "datatype" : "string",
+          "description" : "Status of the claim",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lossDate" : {
+          "datatype" : "string",
+          "description" : "Date of loss of vehicle",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "noticeDate" : {
+          "datatype" : "string",
+          "description" : "Date customer gave notice of loss",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "createDate" : {
+          "datatype" : "string",
+          "description" : "Date claim was created in the system",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lossCity" : {
+          "datatype" : "string",
+          "description" : "City where loss occurred",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lossCountry" : {
+          "datatype" : "string",
+          "description" : "Country where loss occurred",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lossStreet" : {
+          "datatype" : "string",
+          "description" : "Street where loss occurred",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lossZipcode" : {
+          "datatype" : "string",
+          "description" : "Zipcode where loss occurred",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "plateNumber" : {
+          "datatype" : "string",
+          "description" : "Plate number of vehicle claimed",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "vehicleBrand" : {
+          "datatype" : "string",
+          "description" : "Brand of vehicle claimed",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        }
+      }
+    }
+  }
+}

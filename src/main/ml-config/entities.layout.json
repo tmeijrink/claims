@@ -1,0 +1,58 @@
+{
+  "Claim" : {
+    "x" : 288,
+    "y" : 160,
+    "width" : 478,
+    "height" : 365,
+    "vertices" : { }
+  },
+  "claimLocation" : {
+    "x" : 49,
+    "y" : 548,
+    "width" : 350,
+    "height" : 188,
+    "vertices" : { }
+  },
+  "claimVehicle" : {
+    "x" : 450,
+    "y" : 543,
+    "width" : 350,
+    "height" : 166,
+    "vertices" : { }
+  },
+  "claimDate" : {
+    "x" : 222,
+    "y" : 287,
+    "width" : 350,
+    "height" : 188,
+    "vertices" : { }
+  },
+  "Location" : {
+    "x" : 731,
+    "y" : 96,
+    "width" : 350,
+    "height" : 210,
+    "vertices" : { }
+  },
+  "Vehicle" : {
+    "x" : 622,
+    "y" : 438,
+    "width" : 350,
+    "height" : 166,
+    "vertices" : { }
+  },
+  "Claimdates" : {
+    "x" : 275,
+    "y" : 195,
+    "width" : 350,
+    "height" : 188,
+    "vertices" : { }
+  },
+  "Claim360" : {
+    "x" : 921,
+    "y" : 159,
+    "width" : 437,
+    "height" : 367,
+    "vertices" : { }
+  }
+}
